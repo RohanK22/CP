@@ -1,0 +1,16 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class boyOrGirl {
+	public static void main(String[] args) {
+		Scanner reader = new Scanner(System.in);
+		String a = reader.nextLine();
+		ArrayList<Character> list = new ArrayList<>();
+		for(int i = 0; i< a.length(); i++) {
+			if(!list.contains(a.charAt(i))) {
+				list.add(a.charAt(i));
+			}
+		}
+		System.out.println((list.size() %2 ==0? "CHAT WITH HER!" : "IGNORE HIM!"));
+	}
+}	
