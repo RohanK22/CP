@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch magnets",
+            "request": "launch",
+            "mainClass": "magnets",
+            "projectName": "codeforces-training_b05fb8b1"
+        },
+        {
+            "type": "java",
+            "request": "launch",
+            "vmArgs": "--foo arg1 --bar arg2",
+            "mainClass": "CS1003P2",
+            "projectName": "CS1003P2",
+            "args": [
+                "online",
+                "b",
+                "c"
+            ]
+        }
+    ]
+}
