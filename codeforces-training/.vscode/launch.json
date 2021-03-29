@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch serejaAndDima",
+            "request": "launch",
+            "mainClass": "serejaAndDima",
+            "projectName": "codeforces-training_b05fb8b1"
+        },
+        {
+            "type": "java",
             "name": "Launch magnets",
             "request": "launch",
             "mainClass": "magnets",
