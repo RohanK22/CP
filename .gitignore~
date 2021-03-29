@@ -2,5 +2,3 @@
 *.un~
 ./*.class
 ./*/un~
-./*.java~
-./*/*.java~
