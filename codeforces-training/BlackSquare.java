@@ -1,16 +1,20 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-public class boyOrGirl {
+public class BlackSquare {
+		
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
-		String a = reader.nextLine();
-		ArrayList<Character> list = new ArrayList<>();
-		for(int i = 0; i< a.length(); i++) {
-			if(!list.contains(a.charAt(i))) {
-				list.add(a.charAt(i));
-			}
+		String[] line = reader.nextLine().split(" ");
+		int[] nums = new int[line.length];
+		for(int i = 0; i< line.length; i++) {
+			nums[i] = Integer.parseInt(line[i]);
 		}
-		System.out.println((list.size() %2 ==0? "CHAT WITH HER!" : "IGNORE HIM!"));
+		String s = reader.nextLine();
+		int cal = 0;
+		for(int i = 0;i < s.length(); i++) {
+			cal += nums[Character.getNumericValue(s.charAt(i)) - 1];
+		}
+		System.out.println(cal);
 	}
 }	
