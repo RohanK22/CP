@@ -1,8 +1,8 @@
 import java.io.*;
 import java.util.*;
 
-public class MarchLong2 {
-    public static class Reader {
+class MarchLong2 {
+    static class Reader {
         final private int BUFFER_SIZE = 1 << 16;
         private DataInputStream din;
         private byte[] buffer;
