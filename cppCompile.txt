@@ -1,0 +1,4 @@
+Compile to exe:
+	gcc -o test test.cpp
+Run Exe 
+	test.exe
