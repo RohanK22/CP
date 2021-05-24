@@ -7,7 +7,15 @@ using namespace std;
 //^B for run
 
 void solve() {
-	
+	int k, r;
+	cin>>k>>r;
+		int t = 1;
+		int rem = (t * k % 10);
+		while(!(rem ==r || rem ==0)) {
+			t++;
+			rem = (t * k % 10);
+		}
+		cout<<t;
 	cout<<endl;
 }
 
