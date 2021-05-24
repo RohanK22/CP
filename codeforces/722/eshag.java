@@ -1,62 +1,31 @@
 import java.io.*;
-import java.math.BigInteger;
 import java.util.*;
 
-public class template {
+public class eshag {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
     // set
-    public static boolean debug = true;
+    public static boolean debug = false;
     public static boolean casesPresent = true;
-    
 
     public static void solve() throws Exception {
         // Your solution here
         int n = gi();
         gs();
         int[] a = gia();
-        int largestSubseq = 1;
-      
-        int opsize = (int)Math.pow(2, n);
-        ArrayList<Integer> al = new ArrayList<>();
-        for (int counter = 1; counter < opsize; counter++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                if (BigInteger.valueOf(counter).testBit(j))
-                    al.add(a[j]);
-            }
-            
-            int[] subseq = new int[al.size()];
-            for(int num = 0; num < al.size();  num++) {
-                subseq[num] = al.get(num);
-            }
-            al.clear();
-            
-            if(isStrange(subseq) && subseq.length > largestSubseq) {
-                largestSubseq = subseq.length;
+        int min = Integer.MAX_VALUE, ans = 0;
+        for(int num: a) {
+            if(num < min) {
+                min = num;
             }
         }
-        
-        println(largestSubseq);
-    }
-
-    public static boolean isStrange(int[] nums) throws Exception {
-        int e = nums.length;
-        int max = Integer.MIN_VALUE;
-        for(int y: nums){
-            if(max<y) max=y;
-        }
-
-        for(int i =0; i<e; i++) {
-            for(int j =i+1; j <e; j++) {
-                if(Math.abs(nums[i] - nums[j]) < max) {
-                    return false;
-                }
+        for(int num : a) {
+            if(num > min) {
+                ans++;
             }
         }
-        return true;
+        println(ans);
     }
 
 
@@ -169,3 +138,5 @@ public class template {
         return sc.nextLine();
     }
 }
+
+
