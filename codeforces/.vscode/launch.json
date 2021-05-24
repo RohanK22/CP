@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch template",
+            "request": "launch",
+            "mainClass": "template",
+            "projectName": "codeforces_1ef50c16"
+        },
+        {
+            "type": "java",
+            "request": "launch",
+            "vmArgs": "--foo arg1 --bar arg2",
+            "mainClass": "CS1003P2",
+            "projectName": "CS1003P2",
+            "args": [
+                "online",
+                "b",
+                "c"
+            ]
+        }
+    ]
+}
