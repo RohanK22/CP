@@ -1,7 +1,9 @@
+package archive;
+
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class helpfulMaths {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -146,3 +148,4 @@ public class template {
         return sc.nextLine();
     }
 }
+
