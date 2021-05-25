@@ -1,8 +1,10 @@
+package archive;
+
 import java.io.*;
 import java.util.*;
 
-public class template {
-    public static Scanner sc  = null;
+public class freeIceCream {
+     public static Scanner sc  = null;
     public static FileWriter op = null;
     
     // set
@@ -138,3 +140,4 @@ public class template {
         return sc.nextLine();
     }
 }
+
