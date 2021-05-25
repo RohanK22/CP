@@ -1,7 +1,8 @@
+package archive;
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class presents {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -12,7 +13,17 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        
+        int n = gi();gs();
+        int[] arr = gia();
+		int[] res = new int[n];
+		
+		for(int i=0; i<n; i++){
+		    res[arr[i]-1] = i+1;
+		}
+		
+		for(int i=0; i<n; i++){
+		    System.out.print(res[i] + " ");
+		}
     }
 
 
@@ -134,3 +145,4 @@ public class template {
         return sc.nextLine();
     }
 }
+
