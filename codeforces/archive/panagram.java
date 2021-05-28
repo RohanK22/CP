@@ -1,26 +1,27 @@
 import java.io.*;
 import java.util.*;
 
-public class oathOfNightWatch {
+public class panagram {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
     // set
-    public static boolean debug = true;
+    public static boolean debug = false;
     public static boolean casesPresent = false;
     
 
     public static void solve() throws Exception {
         // Your solution here
-        int n = gi();
+        int n = gi();gs();
         String s = gs();
-        if(s.length() < 26) {
+        if(n < 26) {
             println("NO");
             return;
         }
+        s = s.toLowerCase();
         ArrayList<Character> li = new ArrayList<>();
         int u = 0;
-        for(int i = 0; i< s.length(); i++) {
+        for(int i = 0; i< n; i++) {
             if(!li.contains(s.charAt(i))) {
                 li.add(s.charAt(i));
             }
@@ -30,6 +31,7 @@ public class oathOfNightWatch {
         } else {
             println("YES");
         }
+
     }
 
 

@@ -12,21 +12,26 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        int n = gi();
-        gs();
-        int[] a = gia();
-        for(int i = 0; i< n; i++) {
-            if(i == 0) {
-                println("" + Math.abs(a[1] - a[0]) + " " + Math.abs(a[n - 1] - a[0]));
-            } else if(i == n - 1) {
-                println("" + Math.abs(a[n - 1] - a[n-2]) + " " + Math.abs(a[n - 1] - a[0]));
-            } else {
-                int min = Math.min(Math.abs(a[i] - a[i-1]), Math.abs(a[i] - a[i+1]));
-                int max = Math.max(Math.abs(a[i] - a[0]), Math.abs(a[i] - a[n - 1]));            
-                println("" +  min + " " + max);
-            }
-
+        int n = gi();gs();
+        String s = gs();
+        if(n < 26) {
+            println("NO");
+            return;
         }
+        s = s.toLowerCase();
+        ArrayList<Character> li = new ArrayList<>();
+        int u = 0;
+        for(int i = 0; i< n; i++) {
+            if(!li.contains(s.charAt(i))) {
+                li.add(s.charAt(i));
+            }
+        }
+        if(li.size() != 26) {
+            println("NO");
+        } else {
+            println("YES");
+        }
+
     }
 
 
