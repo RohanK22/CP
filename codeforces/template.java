@@ -12,25 +12,7 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        int n = gi();gs();
-        String s = gs();
-        if(n < 26) {
-            println("NO");
-            return;
-        }
-        s = s.toLowerCase();
-        ArrayList<Character> li = new ArrayList<>();
-        int u = 0;
-        for(int i = 0; i< n; i++) {
-            if(!li.contains(s.charAt(i))) {
-                li.add(s.charAt(i));
-            }
-        }
-        if(li.size() != 26) {
-            println("NO");
-        } else {
-            println("YES");
-        }
+        
 
     }
 
@@ -86,6 +68,18 @@ public class template {
         }
     }
 
+    public static void printArr(int[] arr, String sep) throws Exception {
+        String str = "";
+        for(int i: arr) {
+            str += i + sep;
+        }
+        str = str.trim();
+        if(debug) {
+            op.write(str + "\n");
+        } else {
+            System.out.println(str);
+        }
+    }
     
     public static void println(long str) throws Exception {
         if(debug) {
