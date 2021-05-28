@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class twins {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -12,27 +12,26 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        
-        int n = gi(), k = gi(), start = 0;
-        
-        if(k == 1 && n == 1) {
-            println("1");
-            return;
-        
+        int n= gi(); gs();
+        int[] a = gia();
+        Arrays.sort(a);
+        int c  =0, sum = 0;
+        for(int i: a) {
+            sum += i;
         }
-        if(k > n/2) {
-            //even
-            start = 2;
-            k = k - n/2;
-        } else {
-            // odd
-            start = 1;
+        int my = 0;
+        for(int i =n-1;i >-1;i--) {
+            if(my <= sum - my) {
+                my += a[i];
+                c++;
+            } else {
+                break;
+            }
         }
 
-        println(start + (k-1) * 2);
-        
+        println(c);
+
     }
-
 
 
 

@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class keyboard {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -12,25 +12,14 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        
-        int n = gi(), k = gi(), start = 0;
-        
-        if(k == 1 && n == 1) {
-            println("1");
-            return;
-        
+        String shift = gs(), input = gs();
+        int move = (shift.equals("R")? -1: 1);
+        String keyboard = "qwertyuiopasdfghjkl;zxcvbnm,./";
+        String op = "";
+        for(int i =0;i < input.length();i ++) {
+            op += String.valueOf(keyboard.charAt(keyboard.indexOf(input.charAt(i)) + move)); 
         }
-        if(k > n/2) {
-            //even
-            start = 2;
-            k = k - n/2;
-        } else {
-            // odd
-            start = 1;
-        }
-
-        println(start + (k-1) * 2);
-        
+        println(op);
     }
 
 
