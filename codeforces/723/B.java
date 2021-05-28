@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class B {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -13,21 +13,11 @@ public class A {
     public static void solve() throws Exception {
         // Your solution here
         int n = gi();gs();
-        int[] a = gia();
-        Arrays.sort(a);
-        int i = 0,j = 2 * n - 1;
-        String ans = "";
-        boolean t = true;
-        while(i != j) {
-            if(t) {
-                ans += a[i++] + " ";
-            } else {
-                ans += a[j--] + " ";
-            }
-            t = !t;
+        int t = 11;
+        if(n < 111 && n % 11 != 0) {
+            println("NO");
+            return;
         }
-        ans += a[j] + " ";
-        println(ans.trim());
     }
 
 

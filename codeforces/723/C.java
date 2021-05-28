@@ -1,33 +1,53 @@
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class C {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
     // set
     public static boolean debug = false;
-    public static boolean casesPresent = true;
+    public static boolean casesPresent = false;
     
 
     public static void solve() throws Exception {
         // Your solution here
         int n = gi();gs();
-        int[] a = gia();
-        Arrays.sort(a);
-        int i = 0,j = 2 * n - 1;
-        String ans = "";
-        boolean t = true;
-        while(i != j) {
-            if(t) {
-                ans += a[i++] + " ";
+        String[] s = gs().split(" ");
+        ArrayList<Integer> negs = new ArrayList<>();
+        long sumPos = 0;
+        int numPos = 0, numNeg = 0, negsToInc = 0;
+
+        for(int i = 0; i< n;i++) {
+            int num = Integer.parseInt(s[i]);
+            if( num >= 0) {
+                numPos++;
+                sumPos += num;
             } else {
-                ans += a[j--] + " ";
+                // Store negatives
+                negs.add(num);
             }
-            t = !t;
         }
-        ans += a[j] + " ";
-        println(ans.trim());
+
+        numNeg = negs.size();
+
+        if(numPos < 1) {
+            println("0");
+            return;
+        } else if(numNeg == 0) {
+            println(numPos);
+            return;
+        }
+
+        Collections.sort(negs, Collections.reverseOrder());
+        negsToInc = 0;
+        while(negsToInc < numNeg && sumPos + negs.get(negsToInc) >= 0) {
+            sumPos += negs.get(negsToInc++);
+        }
+
+        println(numPos + negsToInc);
+
+
     }
 
 
