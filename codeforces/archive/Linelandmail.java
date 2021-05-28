@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class Linelandmail {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
