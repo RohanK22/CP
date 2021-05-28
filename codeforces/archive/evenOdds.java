@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class evenOdds {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -12,8 +12,31 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
+        String[] s = gs().split(" ");
+        long n = Long.parseLong(s[0]), 
+            k = Long.parseLong(s[1]),
+             start = 0;
+        
+        if(k == 1 && n == 1) {
+            println("1");
+            return;
+        
+        }
+        if(k > (n%2 ==0? n/2: n/2 + 1)) {
+            //even
+            start = 2;
+            k = k - (n%2 ==0? n/2: n/2 + 1);
+        } else {
+            // odd
+            start = 1;
+        }
+
+        println(start + (k-1) * 2);
         
     }
+
+
+
 
 
 

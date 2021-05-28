@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class beTheGuy {
     public static Scanner sc  = null;
     public static FileWriter op = null;
     
@@ -12,8 +12,39 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        
-    }
+        int n = gi();gs();
+        int[] a = gia(), b = gia();
+        ArrayList<Integer> al = new ArrayList<>();
+        for(int i = 1;i < a.length; i++) {
+            if(!al.contains(a[i]) ) {
+                al.add(a[i]);
+            }
+        }
+        for(int j = 1; j<b.length; j++) {
+            if(!al.contains(b[j])) {
+                al.add(b[j]);
+            }
+        }
+        if(al.size() == 0) {
+            println("Oh, my keyboard!");
+                return;
+        }
+        Collections.sort(al);
+        boolean res = false;
+        if(al.get(0) != 1) {println("Oh, my keyboard!");return;}
+        for(int i =1; i< al.size(); i++) {
+            if(al.get(i -1 ) != al.get(i) - 1) {
+                println("Oh, my keyboard!");
+                return;
+            }
+        }
+        if(n == al.get(al.size()-1))
+            println("I become the guy.");
+        else       
+            println("Oh, my keyboard!");
+
+
+}
 
 
 
