@@ -11,7 +11,38 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi(); gs();
+        String[] lines = new String[n];
+        ArrayList<Character> al = new ArrayList<>();
+        for(int i =0; i< n; i++) {
+            lines[i] = gs();
+        }
+
+        char diagChar = lines[0].charAt(0);
+
+        for(int i =0; i < n; i++) {
+            if(lines[i].charAt(i) != diagChar) {
+                println("NO");
+                return;
+            }
+            if(lines[i].charAt(n - i - 1) != diagChar) {
+                println("NO");
+                return;
+            }
+            for(int j =0; j< n; j++) {
+                // j - col
+                if(((i != j && j != n - i - 1) && lines[i].charAt(j) == diagChar)) {
+                    println("NO");
+                    return;
+                }
+                if(!al.contains(lines[i].charAt(j)))
+                    al.add(lines[i].charAt(j));
+            }
+        }
+
+        if(al.size() != 2) println("NO");
+        else println("YES");
+
     }
 
 

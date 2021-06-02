@@ -11,7 +11,7 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+       println(gs().replaceAll("WUB", " ").trim());
     }
 
 

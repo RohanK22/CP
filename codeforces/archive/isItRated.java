@@ -11,7 +11,28 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        // Your solution here   
+        int n = gi(), prev = 0, c = 0;
+        int[] as = new int[n];
+
+        boolean rat = false;
+        for(int i =0; i< n; i++) {
+            int a = gi(), b = gi();
+            as[c++] = a;
+            if(a - b != 0) {
+                println("rated");
+                return;
+            } 
+        }
+
+        for(int j =1; j< n; j++) {
+            if(as[j-1] < as[j]) {
+                println("unrated");
+                return;
+            }
+        }
+
+        println("maybe");
     }
 
 

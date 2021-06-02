@@ -11,7 +11,8 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        long n = gl();   
+        println((n % 2 == 0? n/2: n/2 - n));
     }
 
 

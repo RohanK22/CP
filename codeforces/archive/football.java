@@ -11,7 +11,27 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi();gs();
+        Map<String, Integer> mp = new HashMap<>();
+        for(int i =0;i < n;i ++) {
+            String s = gs();
+            if(mp.get(s) == null) {
+                mp.put(s, 0);
+            } else {
+                mp.put(s, mp.get(s)  + 1);   
+            }
+        }
+
+        String winner = "";
+        int max = Integer.MIN_VALUE;
+        for (Map.Entry<String, Integer> entry : mp.entrySet()) {
+            if(max < entry.getValue()) {
+                max = entry.getValue();
+                winner = entry.getKey();
+            }
+        }
+
+        println(winner);
     }
 
 

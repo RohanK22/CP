@@ -11,6 +11,19 @@ public class A {
     
 
     public static void solve() throws Exception {
+        int n = gi();
+
+        if(n == 0) {
+            println(1);
+            return;
+        }
+
+        switch(n % 4) {
+            case 1: println(8);break;
+            case 2: println(4);break;
+            case 3: println(2);break;
+            case 0: println(6);break;
+        }
         
     }
 

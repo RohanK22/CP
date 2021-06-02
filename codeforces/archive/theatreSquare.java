@@ -11,7 +11,13 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        long n = gl(), m= gl(), a = gl();
+        long tiles = 0;
+        long max = (n > m ? n:m);
+        long min = (max == n ? m: n);
+        tiles = max / a + (max % a == 0? 0: 1);
+        tiles *= (min <= a? 1: min / a + (min %a==0?0 : 1));
+        println(tiles);
     }
 
 

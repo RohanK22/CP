@@ -11,7 +11,20 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        int t = s.nextInt();
+        if(t==10 && n>=2) {
+            for(int i=1;i<n;i++)
+                System.out.print("1");
+            System.out.println("0");
+        }
+        else if(t==10 && n<2)
+            System.out.println("-1");
+        else {
+            for(int i=1;i<=n;i++)
+                System.out.print(t);
+        }
     }
 
 

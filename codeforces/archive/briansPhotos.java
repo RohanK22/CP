@@ -11,7 +11,30 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi(), m = gi();gs();
+
+        Map<Character, Integer> mp = new HashMap<>();
+        for(int i =0;i < n;i ++) {
+            String s = gs();
+            for(int cc = 0; cc < m * 2; cc+=2) {
+
+                char c1 = s.charAt(cc);
+                if(mp.get(c1) == null) {
+                    mp.put(c1, 0);
+                } else {
+                    mp.put(c1, mp.get(c1)  + 1);   
+                }
+            }
+            
+        }
+
+        for (Map.Entry<Character, Integer> entry : mp.entrySet()) {
+            if(entry.getKey() != 'B' && entry.getKey() != 'G' && entry.getKey() != 'W') {
+                println("#Color");
+                return;
+            }
+        }
+        println("#Black&White");
     }
 
 

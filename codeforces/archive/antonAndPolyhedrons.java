@@ -11,7 +11,19 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi(); gs();
+        long sum = 0;
+        Map<String, Integer> mp = new HashMap<>(); 
+        mp.put("Tetrahedron", 4);
+        mp.put("Cube", 6);
+        mp.put("Octahedron", 8);
+        mp.put("Dodecahedron", 12);
+        mp.put("Icosahedron", 20);
+        while( n > 0 ) {
+            sum += mp.get(gs());
+            n--;
+        }
+        println(sum);
     }
 
 
