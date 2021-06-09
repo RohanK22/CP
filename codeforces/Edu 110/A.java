@@ -6,61 +6,23 @@ public class A {
     public static FileWriter op = null;
     
     // set
-    public static boolean debug = true;
+    public static boolean debug = false;
     public static boolean casesPresent = true;
     
 
     public static void solve() throws Exception {
-        int n = gi(); gs();
-        String s = gs();
-        char[] c = s.toCharArray();
-        char[] buffer = new char[n];
-        Arrays.sort(c);
-        int start = charToInt(c[0]);
-        int end = charToInt(c[n - 1]);
-        if(start > 97) {
-            println(intToChar(start - 1));
-            return;
-        } else if(end < 123) {
-            println(intToChar(end + 1));
-            return;
+        int a = gi(), b = gi(), c = gi(), d= gi(); gs();
+        int[] arr = new int[] { a, b, c, d};
+        int w1 = Math.round(Math.max(a,b));
+        int w2 = Math.round(Math.max(c,d));
+        Arrays.sort(arr);
+        if((w1 == arr[3] && w2 == arr[2]) || (w1 == arr[2] && w2 == arr[3])) {
+            println("YES");
         } else {
-            for(int i = 1; i< n ;i ++) {
-                if((charToInt(c[i]) != charToInt(c[i-1]) + 1 && c[i] != c[i-1])){
-                    println(intToChar(((int)c[i - 1]) + 1));
-                    return;
-                }
-            }
+            println("NO");
         }
-        String temp = "a";
-        while(true) {
-            if (!s.contains(temp)) {
-                println(temp);
-                return;
-            } 
-            temp = temp.substring(0, temp.length() - 2) + intToChar((int)temp.charAt(temp.length() - 1) + 1);
-        }
-            
     }
 
-    public static int charToInt(char c) throws Exception {
-        return (int) c;
-    }
-
-    public static char intToChar(int n) throws Exception {
-        return (char) n;
-    }
-
-    public static int gcd(int n1, int n2) throws Exception {
-        int gcd = 1;
-
-        for (int i = 1; i <= n1 && i <= n2; ++i) {
-          if (n1 % i == 0 && n2 % i == 0)
-            gcd = i;
-        }
-
-        return gcd;
-    }
 
 
 
@@ -104,22 +66,6 @@ public class A {
     }
 
     public static void print(String str) throws Exception {
-        if(debug) {
-            op.write(str);
-        } else {
-            System.out.print(str);
-        }
-    }
-
-    public static void println(char str) throws Exception {
-        if(debug) {
-            op.write("" + str + "\n");
-        } else {
-            System.out.println(str);
-        }
-    }
-
-    public static void print(char str) throws Exception {
         if(debug) {
             op.write(str);
         } else {
