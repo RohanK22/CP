@@ -11,7 +11,16 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi(), k = gi(); gs();
+        int[] a = gia();
+        for(int i = 1;i < 2 * n + 1; i++) {
+            if(a[i - 1] < a[i] - 1 && a[i] - 1 > a[i + 1] && k > 0) {
+                a[i]--;k--;
+            }
+        }
+        for(int i: a) {
+            print(i + " ");
+        }
     }
 
     public static int charToInt(char c) throws Exception {
@@ -129,7 +138,7 @@ public class A {
 
     public static void print(int str) throws Exception {
         if(debug) {
-            op.write("" + str);
+            op.write(str);
         } else {
             System.out.print(str);
         }

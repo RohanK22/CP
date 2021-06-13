@@ -11,7 +11,29 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        String[] s = new String[4];
+        s[0] = gs();
+        s[1] = gs();
+        s[2] = gs();
+        s[3] = gs();
+
+        for(int i = 0;i < 4; i++) {
+            for(int j= 0; j < 4; j++) {
+                if(i + 1 < 4 && j + 1 < 4) {
+                    int cb = 0;
+                    cb += (s[i].charAt(j) == '#'?1:0);
+                    cb += (s[i + 1].charAt(j) == '#'?1:0);
+                    cb += (s[i].charAt(j + 1) == '#'?1:0);
+                    cb += (s[i + 1].charAt(j + 1) == '#'?1:0);
+                    if(cb == 0 || cb == 1 || cb == 3 || cb == 4) {
+                        println("YES");
+                        return;
+                    }
+                }
+            }
+        }
+
+        println("NO");
     }
 
     public static int charToInt(char c) throws Exception {

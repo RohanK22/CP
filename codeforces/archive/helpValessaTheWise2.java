@@ -11,7 +11,24 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int r1 = gi(), r2 = gi(); 
+        int c1 = gi(), c2 = gi();
+        int d1 = gi(), d2 = gi();
+        for(int a = 1; a <= 9; a++)
+            for(int b = 1; b <= 9; b++)
+                for(int c = 1; c <= 9; c++)
+                    for(int d = 1; d <= 9; d++) {
+                        if(a == b || a == c || a == d) continue;
+                        if(b == a || b == c || b == d) continue;
+                        if(c == a || c == b || c == d) continue;
+                        if(a + b != r1 || c + d != r2) continue;
+                        if(a + c != c1 || b + d != c2) continue;
+                        if(a + d != d1 || b + c != d2) continue;
+                        println("" + a + " " + b);
+                        println("" + c + " " + d);
+                        return;
+                    } 
+        println("-1");
     }
 
     public static int charToInt(char c) throws Exception {
@@ -129,7 +146,7 @@ public class A {
 
     public static void print(int str) throws Exception {
         if(debug) {
-            op.write("" + str);
+            op.write(str);
         } else {
             System.out.print(str);
         }

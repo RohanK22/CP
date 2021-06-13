@@ -11,7 +11,17 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        String s = gs();
+        for(int i = 0; i< s.length(); i++) {
+            int dig = s.charAt(i) - '0';
+            if(dig > 4) {
+                if(dig == 9 && i ==0) {print(dig);continue;}
+                print(9-dig);
+            } else {
+                print(dig);
+            }
+        }
+        println("");
     }
 
     public static int charToInt(char c) throws Exception {

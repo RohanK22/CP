@@ -11,7 +11,22 @@ public class A {
     
 
     public static void solve() throws Exception {
+        long n = gl(), m = gl();
+        long[] a = new long[5], b = new long[5];
+
+        for(int i = 1; i <= n; i++) {
+            a[i % 5]++;
+        }
+
+        for(int j = 1; j <= m; j++) {
+            b[j % 5]++;            
+        }
         
+        long ans = 0;
+        for(int i =0; i< 5; i++) {
+            ans += (a[i]*b[(5-i)%5]);
+        }
+        println(ans);
     }
 
     public static int charToInt(char c) throws Exception {
@@ -129,7 +144,7 @@ public class A {
 
     public static void print(int str) throws Exception {
         if(debug) {
-            op.write("" + str);
+            op.write(str);
         } else {
             System.out.print(str);
         }

@@ -11,7 +11,35 @@ public class A {
     
 
     public static void solve() throws Exception {
-        
+        int n = gi(); gs();
+        int[] a = gia();
+
+        if(n == 1) {
+            println("YES");
+            return;
+        }
+
+        Map<Integer, Integer> mp = new HashMap<Integer, Integer>();
+        for(int i: a) {
+            if(mp.containsKey(i)) {
+                mp.put(i, mp.get(i) + 1);
+            } else {
+                mp.put(i, 1);
+            }
+        }
+        int maxKeyCount = 0;
+        for(Map.Entry<Integer, Integer> e : mp.entrySet()) {
+            //println(e.getKey() + "  " + e.getValue());
+            if(e.getValue() > maxKeyCount) {
+                maxKeyCount = e.getValue();
+            }
+        }
+
+        if(maxKeyCount > (n %2 == 0? n / 2 : n / 2 + 1)){
+            println("NO");
+        } else {
+            println("YES");
+        }
     }
 
     public static int charToInt(char c) throws Exception {
