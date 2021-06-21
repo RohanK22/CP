@@ -6,12 +6,41 @@ public class A {
     public static FileWriter op = null;
     
     // set
-    public static boolean debug = false;
+    public static boolean debug = true;
     public static boolean casesPresent = false;
     
 
     public static void solve() throws Exception {
-        
+        int n = gi();gs();
+        int[] a = gia();
+        int max = Integer.MIN_VALUE;
+        int score = 0;
+
+        for(int i = 0;i < n; i++) {
+            score = 0;
+            int f = i, b = i, t = a[i];
+            while(f <= n -1 && a[f] <= t) {
+                score++;
+                t = a[f];
+                f++;
+            }
+
+            t = a[i];
+            while(b >= 0 && a[b] <= t) {
+                score++;
+                t = a[b];
+                b--;
+            }
+
+            score--;
+
+            // println(score);
+            if(score > max)
+                max = score;
+
+        }
+
+        println(max);
     }
 
     public static int charToInt(char c) throws Exception {
