@@ -106,15 +106,17 @@ template<class H, class... T> void print(const H& h, const T&... t) {
 	print(t...);
 }
 
+
+
+
+
+
+
 void solve() {
-	int a, b;
-	read(a, b);
-	int i = 0;
-	FOR(i, 3, 6) {
-		write(i);
-		print();
-	}
-	write(a,b);
+	vt<int> v;
+	read(v);
+	sort(v.begin(),v.end());
+	write(v);
 }
 
 int main() {
