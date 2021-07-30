@@ -6,7 +6,6 @@ public class A {
     public static FileWriter op = null;
 
     // set
-<<<<<<< HEAD
     public static boolean debug = false;
     public static boolean casesPresent = true;
 
@@ -57,45 +56,13 @@ public class A {
             s += a[n - 1];
         }
         return s + op;
-=======
+
     public static boolean debug = true;
     public static boolean casesPresent = false;
     
 
     public static void solve() throws Exception {
-        int n = gi(), a = gi();gs();
-        int[] t = gia();
-
-<<<<<<< HEAD
         
-=======
-        for(int i = 0;i < n; i++) {
-            score = 0;
-            int f = i, b = i, t = a[i];
-            while(f <= n -1 && a[f] <= t) {
-                score++;
-                t = a[f];
-                f++;
-            }
-
-            t = a[i];
-            while(b >= 0 && a[b] <= t) {
-                score++;
-                t = a[b];
-                b--;
-            }
-
-            score--;
-
-            // println(score);
-            if(score > max)
-                max = score;
-
-        }
-
-        println(max);
->>>>>>> d2e5c5daf89d4624505147cd410fa48923bec642
->>>>>>> 68ef8b1ff49b0b2b26c1f94e30c0179492eb031e
     }
 
     public static int charToInt(char c) throws Exception {
