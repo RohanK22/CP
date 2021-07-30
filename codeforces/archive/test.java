@@ -1,4 +1,6 @@
-import java.io.*;
+package archive;
+
+public import java.io.*;
 import java.util.*;
 
 public class A {
@@ -6,96 +8,74 @@ public class A {
     public static FileWriter op = null;
 
     // set
-<<<<<<< HEAD
     public static boolean debug = false;
     public static boolean casesPresent = true;
 
     public static void solve() throws Exception {
-        int n = gi();
+        // solve
+        int n = gi(), m = gi();
         gs();
-        long[] a = gla();
+        char[][] a = new char[n][m];
+        char[][] cpy = new char[n][m];
 
-        long ugliness = Integer.MAX_VALUE;
-        long op = 0;
-        while (getUgliness(a, n, op) <= ugliness) {
-            ugliness = getUgliness(a, n, op);
-            // println("TEST:" + ugliness);
+        for (int i = 0; i < n; i++) {
+            String s = gs();
+            a[i] = s.toCharArray();
+            cpy[i] = s.toCharArray();
+        }
 
-            // modify hist
-            long largest = Integer.MIN_VALUE;
-            for (long num : a) {
-                if (num > largest) {
-                    largest = num;
+        if (n == m && n == 1) {
+            println("YES");
+            if (a[0][0] == '.') {
+                println("W");
+            } else {
+                println(a[0][0]);
+            }
+            return;
+        }
+
+        boolean Rfirst = false, change = false;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                // println("DEBUG: " + a[i][j] + " " + Rfirst + " " + change);
+                if (a[i][j] == '.') {
+                    if (Rfirst) {
+                        a[i][j] = 'R';
+                    } else {
+                        a[i][j] = 'W';
+                    }
+                    Rfirst = !Rfirst;
+                } else {
+                    if (a[i][j] != (Rfirst ? 'R' : 'W')) {
+                        if (!change) {
+                            a = cpy;
+                            Rfirst = true;
+                            i = 0;
+                            j = -1;
+                            change = !change;
+                        } else {
+                            println("NO");
+                            return;
+                        }
+                    } else {
+                        Rfirst = !Rfirst;
+                    }
                 }
             }
-
-            if (largest <= 0) {
-                break;
+            if (m % 2 == 0 && m != 1) {
+                Rfirst = !Rfirst;
             }
-
-            int i = 0;
-            while (i < n) {
-                if (a[i] == largest) {
-                    a[i]--;
-                    op++;
-                    // break;
-                }
-                i++;
-            }
-
-        }
-        println(ugliness);
-    }
-
-    public static long getUgliness(long[] a, int n, long op) {
-        long s = 0;
-        for (int i = 1; i < n; i++) {
-            s += Math.abs(a[i] - a[i - 1]);
-        }
-        s += a[0];
-        if (a[n - 1] != 0) {
-            s += a[n - 1];
-        }
-        return s + op;
-=======
-    public static boolean debug = true;
-    public static boolean casesPresent = false;
-    
-
-    public static void solve() throws Exception {
-        int n = gi(), a = gi();gs();
-        int[] t = gia();
-
-<<<<<<< HEAD
-        
-=======
-        for(int i = 0;i < n; i++) {
-            score = 0;
-            int f = i, b = i, t = a[i];
-            while(f <= n -1 && a[f] <= t) {
-                score++;
-                t = a[f];
-                f++;
-            }
-
-            t = a[i];
-            while(b >= 0 && a[b] <= t) {
-                score++;
-                t = a[b];
-                b--;
-            }
-
-            score--;
-
-            // println(score);
-            if(score > max)
-                max = score;
-
         }
 
-        println(max);
->>>>>>> d2e5c5daf89d4624505147cd410fa48923bec642
->>>>>>> 68ef8b1ff49b0b2b26c1f94e30c0179492eb031e
+        // yes case
+        println("YES");
+        for (int i = 0; i < n; i++) {
+            String o = "";
+            for (int j = 0; j < m; j++) {
+                o += a[i][j];
+            }
+            println(o);
+        }
     }
 
     public static int charToInt(char c) throws Exception {
@@ -256,15 +236,6 @@ public class A {
         return arr;
     }
 
-    public static long[] gla() {
-        String[] sp = sc.nextLine().trim().split(" ");
-        long[] arr = new long[sp.length];
-        for (int i = 0; i < sp.length; i++) {
-            arr[i] = Long.parseLong(sp[i]);
-        }
-        return arr;
-    }
-
     public static float[] gfa() {
         String[] sp = sc.nextLine().trim().split(" ");
         float[] arr = new float[sp.length];
@@ -277,4 +248,7 @@ public class A {
     public static String gs() {
         return sc.nextLine();
     }
+}
+class test {
+    
 }
