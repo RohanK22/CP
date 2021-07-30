@@ -10,29 +10,34 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), k = gi();gs();
-        int[] a = gia();
+        int n = gi();gs();
+        int[] a  = gia();
+        long[] sum = new long[n];
+        int[] sorted = a.clone();
+        long[] sortedSum = new long[n];
+        Arrays.sort(sorted);
 
-        int min = Integer.MAX_VALUE;
-
-        if(n == 1) {
-            println(1);
-            return;
+        long temp = 0, temp2 = 0;
+        for(int i = 0; i< n; i++) {
+            temp += a[i];
+            temp2 += sorted[i];
+            sum[i] = temp;
+            sortedSum[i] = temp2;
         }
 
-        int index = 1;
-        for(int i = 0; i <= n - k; i++) {
-            int sum = 0;
-            for(int j = 0;j < k; j++){
-                sum += a[i + j];
+        int m = gi();
+        gs();
+        while(m > 0) {
+            int[] t = gia();
+            long ans = 0;
+            if(t[0] == 1) {
+                ans = sum[t[2] - 1] - (t[1] - 2 >= 0 ? sum[t[1] - 2] : 0); 
+            } else {
+                ans = sortedSum[t[2] - 1] - (t[1] - 2 >= 0 ? sortedSum[t[1] - 2] : 0);
             }
-            if(sum < min) {
-                min = sum;
-                index = i + 1;
-            }
+            println(ans);
+            m--;
         }
-
-        println(index);
 
     }
 

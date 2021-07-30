@@ -10,30 +10,26 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), k = gi();gs();
-        int[] a = gia();
+        int n = gi();gs();
+        String s = gs();
 
-        int min = Integer.MAX_VALUE;
-
-        if(n == 1) {
-            println(1);
+        if(n <= 2) {
+            println(s);
             return;
+        }        
+
+        String ans = s.substring(n - 2, n);
+        s = s.substring(0, n - 2);
+        
+        for(int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            int insertIndex = ans.length() / 2;
+
+            ans = ans.substring(0, insertIndex) + String.valueOf(c) + ans.substring(insertIndex, ans.length());
+
         }
 
-        int index = 1;
-        for(int i = 0; i <= n - k; i++) {
-            int sum = 0;
-            for(int j = 0;j < k; j++){
-                sum += a[i + j];
-            }
-            if(sum < min) {
-                min = sum;
-                index = i + 1;
-            }
-        }
-
-        println(index);
-
+        println(ans);
     }
 
     public static int charToInt(char c) throws Exception {

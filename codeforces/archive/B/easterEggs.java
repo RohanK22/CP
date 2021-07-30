@@ -10,29 +10,22 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), k = gi();gs();
-        int[] a = gia();
+        int n = gi();
+        String loop = "GBIV";
+        String ans = "ROYGBIV";
+        char[] c = loop.toCharArray();
 
-        int min = Integer.MAX_VALUE;
-
-        if(n == 1) {
-            println(1);
+        if(n == 7) {
+            println(ans);
             return;
         }
 
-        int index = 1;
-        for(int i = 0; i <= n - k; i++) {
-            int sum = 0;
-            for(int j = 0;j < k; j++){
-                sum += a[i + j];
-            }
-            if(sum < min) {
-                min = sum;
-                index = i + 1;
-            }
+        for(int i = 0; i < n - 7; i++) {
+            int index = (i <= 3? i : i %4);
+            ans += String.valueOf(c[index]);
         }
 
-        println(index);
+        println(ans);
 
     }
 
