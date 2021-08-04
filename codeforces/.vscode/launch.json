@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch A",
+            "request": "launch",
+            "mainClass": "A",
+            "projectName": "codeforces_e0ec388c"
+        },
+        {
+            "type": "java",
             "name": "Launch template",
             "request": "launch",
             "mainClass": "template",
