@@ -7,10 +7,26 @@ public class A {
 
     // set
     public static boolean debug = false;
-    public static boolean casesPresent = false;
+    public static boolean casesPresent = true;
 
     public static void solve() throws Exception {
-
+        long r = gl(), c = gl();
+        gs();
+        if (r == c) {
+            println(r * r - (r - 1));
+        } else if (r > c) {
+            if (r % 2 == 0) {
+                println(r * r - (c - 1));
+            } else {
+                println((r - 1) * (r - 1) + c);
+            }
+        } else {
+            if (c % 2 == 0) {
+                println((c - 1) * (c - 1) + r);
+            } else {
+                println(c * c - (r - 1));
+            }
+        }
     }
 
     public static int charToInt(char c) throws Exception {
@@ -41,7 +57,7 @@ public class A {
         }
 
         if (casesPresent) {
-            int cases = gi();
+            long cases = gl();
             gs();
             for (int c = 0; c < cases; c++)
                 solve();
