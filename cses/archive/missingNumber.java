@@ -10,7 +10,15 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
+        long n = gl();
+        gs();
+        long[] a = gla();
+        long sum = 0;
 
+        for (int i = 0; i < n - 1; i++) {
+            sum += a[i];
+        }
+        println(((n * (n + 1)) / 2) - sum);
     }
 
     public static int charToInt(char c) throws Exception {
