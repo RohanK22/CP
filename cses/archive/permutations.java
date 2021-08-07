@@ -10,7 +10,27 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
+        long n = gl();
+        if (n == 1) {
+            println(1);
+        } else if (n == 4) {
+            println("2 4 1 3");
+        } else if (n < 5) {
+            println("NO SOLUTION");
+        } else {
+            // String ans = "";
+            StringBuilder sb = new StringBuilder("");
+            for (int i = 1; i <= n; i += 2) {
+                sb.append(i);
+                sb.append(" ");
+            }
 
+            for (int i = 2; i <= (n % 2 == 0 ? n : n - 1); i += 2) {
+                sb.append(i);
+                sb.append(" ");
+            }
+            println(sb.toString());
+        }
     }
 
     public static int charToInt(char c) throws Exception {
