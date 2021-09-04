@@ -10,36 +10,7 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), f = gi();
-        gs();
-        ArrayList<int[]> al = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
-            al.add(gia());
-        }
-
-        long ans = 0;
-        while (f != 0) {
-            int max = Integer.MIN_VALUE, index = 0, c = 0;
-            for (int[] arr : al) {
-                if (Math.min(arr[1], arr[0] * 2) > max) {
-                    max = Math.max(Math.min(arr[1], arr[0] * 2), max);
-                    index = c;
-                }
-                c++;
-            }
-            ans += max;
-            al.remove(index);
-
-            // println("MAX: " + max);
-            f--;
-        }
-
-        for (int[] arr : al) {
-            ans += Math.min(arr[1], arr[0]);
-        }
-
-        print(ans);
     }
 
     public static int charToInt(char c) throws Exception {

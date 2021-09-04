@@ -1,7 +1,9 @@
+package archive.B;
+
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class easterEggs {
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -15,13 +17,13 @@ public class A {
         String ans = "ROYGBIV";
         char[] c = loop.toCharArray();
 
-        if(n == 7) {
+        if (n == 7) {
             println(ans);
             return;
         }
 
-        for(int i = 0; i < n - 7; i++) {
-            int index = (i <= 3? i : i %4);
+        for (int i = 0; i < n - 7; i++) {
+            int index = (i <= 3 ? i : i % 4);
             ans += String.valueOf(c[index]);
         }
 

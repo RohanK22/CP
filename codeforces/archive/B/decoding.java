@@ -1,7 +1,9 @@
+package archive.B;
+
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class decoding {
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -10,18 +12,19 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi();gs();
+        int n = gi();
+        gs();
         String s = gs();
 
-        if(n <= 2) {
+        if (n <= 2) {
             println(s);
             return;
-        }        
+        }
 
         String ans = s.substring(n - 2, n);
         s = s.substring(0, n - 2);
-        
-        for(int i = s.length() - 1; i >= 0; i--) {
+
+        for (int i = s.length() - 1; i >= 0; i--) {
             char c = s.charAt(i);
             int insertIndex = ans.length() / 2;
 
