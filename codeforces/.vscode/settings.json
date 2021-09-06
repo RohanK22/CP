@@ -1,3 +1,6 @@
 {
-    "java.format.settings.url": "prettier"
+    "java.format.settings.url": "prettier",
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }
