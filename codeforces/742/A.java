@@ -10,8 +10,23 @@ public class A {
     public static boolean casesPresent = true;
 
     public static void solve() throws Exception {
-        long a = gl(), b = gl();
-        println(a + (b % 2));
+        int n = gi();
+        gs();
+        String s = gs();
+        StringBuilder ans = new StringBuilder("");
+        for (int i = 0; i < n; i++) {
+            switch (s.charAt(i)) {
+            case 'D':
+                ans.append("U");
+                break;
+            case 'U':
+                ans.append("D");
+                break;
+            default:
+                ans.append(s.charAt(i));
+            }
+        }
+        println(ans.toString());
     }
 
     public static int charToInt(char c) throws Exception {
