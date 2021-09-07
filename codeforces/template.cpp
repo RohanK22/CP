@@ -20,20 +20,5 @@ vi<T> read(T n) {
 }
 
 int main() {
-    ll n;
-    cin>>n;
-    vi<ll> v = read(n);
-    std::sort(v.begin(), v.end());
-    
-    ll a,b,c;
-    for(int i = 1; i < n - 1; i++) {
-        a = v[i - 1];b=v[i];c=v[i+1];
-        if((a + b > c && a + c > b && b + c > a)) {
-            cout<<"YES"<<endl;
-            return 0;
-        }
-    }
-
-    cout<<"NO"<<endl;
     return 0;
 }
