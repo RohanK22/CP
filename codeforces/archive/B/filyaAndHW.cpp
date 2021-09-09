@@ -24,6 +24,17 @@ vi<T> read(T n) {
 }
 
 int main() {
-    
+    int n; cin >> n;
+    vector<int> v = read(n);
+ 
+    sort(all(v));
+    v.erase(unique(v.begin(), v.end()), v.end());
+ 
+    if (sz(v) <= 2 || (sz(v) == 3 && 2*v[1] == v[0]+v[2])) {
+        cout << "YES\n";
+    }
+    else {
+        cout << "NO\n";
+    }
     return 0;
 }
