@@ -1,7 +1,9 @@
+package archive.B;
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class Steps {
+
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -199,4 +201,5 @@ public class A {
     public static String gs() {
         return sc.nextLine();
     }
+    
 }
