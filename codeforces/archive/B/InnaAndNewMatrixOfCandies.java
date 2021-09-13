@@ -1,7 +1,10 @@
+package archive.B;
+
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class InnaAndNewMatrixOfCandies {
+
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -10,34 +13,30 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), t1 = gi(), t2 = gi(), k = gi();
+        int n = gi(), m = gi();
         gs();
-        HashMap<Double, ArrayList<Integer>> mp = new HashMap<>();
+        HashSet<Integer> s = new HashSet<>();
 
-        for (int i = 1; i <= n; i++) {
-            int v = gi(), u = gi();
-            gs();
-            double len = Math.max(t1 * v + t2 * u * (100 - k) / 100.0, t1 * u + t2 * v * (100 - k) / 100.0);
-            len = Math.round(len * 100.0) / 100.0;
-
-            if (mp.containsKey(len))
-                mp.get(len).add(i);
-            else {
-                ArrayList<Integer> t = new ArrayList<Integer>();
-                t.add(i);
-                mp.put(len, t);
+        char[][] c = new char[n][m];
+        for (int i = 0; i < n; i++) {
+            c[i] = gs().toCharArray();
+            int posG = 0, posS = 0;
+            for (int j = 0; j < m; j++) {
+                if (c[i][j] == 'G') {
+                    posG = j;
+                } else if (c[i][j] == 'S') {
+                    posS = j;
+                }
+            }
+            if (posG > posS) {
+                println("-1");
+                return;
+            } else {
+                s.add(posS - posG);
             }
         }
 
-        SortedSet<Double> keys = new TreeSet<>(mp.keySet());
-        while (!keys.isEmpty()) {
-            double key = keys.last();
-            Collections.sort(mp.get(key));
-            for (int num : mp.get(key)) {
-                println(num + " " + key);
-            }
-            keys.remove(key);
-        }
+        println(s.size());
     }
 
     public static int charToInt(char c) throws Exception {
@@ -208,4 +207,5 @@ public class A {
     public static String gs() {
         return sc.nextLine();
     }
+
 }

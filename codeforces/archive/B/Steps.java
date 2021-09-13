@@ -1,7 +1,9 @@
+package archive.B;
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class Steps {
+
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -10,34 +12,25 @@ public class A {
     public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        int n = gi(), t1 = gi(), t2 = gi(), k = gi();
+        long n = gl(), m = gl();
         gs();
-        HashMap<Double, ArrayList<Integer>> mp = new HashMap<>();
-
-        for (int i = 1; i <= n; i++) {
-            int v = gi(), u = gi();
+        long x = gl() - 1, y = gl() - 1;
+        gs();
+        long k = gl();
+        gs();
+        long dx, dy, steps = 0;
+        while (k-- != 0) {
+            dx = gl();
+            dy = gl();
             gs();
-            double len = Math.max(t1 * v + t2 * u * (100 - k) / 100.0, t1 * u + t2 * v * (100 - k) / 100.0);
-            len = Math.round(len * 100.0) / 100.0;
-
-            if (mp.containsKey(len))
-                mp.get(len).add(i);
-            else {
-                ArrayList<Integer> t = new ArrayList<Integer>();
-                t.add(i);
-                mp.put(len, t);
+            while (x + dx >= 0 && x + dx < n && y + dy >= 0 && y + dy < m) {
+                steps++;
+                x += dx;
+                y += dy;
             }
         }
 
-        SortedSet<Double> keys = new TreeSet<>(mp.keySet());
-        while (!keys.isEmpty()) {
-            double key = keys.last();
-            Collections.sort(mp.get(key));
-            for (int num : mp.get(key)) {
-                println(num + " " + key);
-            }
-            keys.remove(key);
-        }
+        println(steps);
     }
 
     public static int charToInt(char c) throws Exception {
@@ -208,4 +201,5 @@ public class A {
     public static String gs() {
         return sc.nextLine();
     }
+    
 }

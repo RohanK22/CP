@@ -1,7 +1,9 @@
+package archive.B;
+
 import java.io.*;
 import java.util.*;
 
-public class A {
+public class GrowingMushrooms {
     public static Scanner sc = null;
     public static FileWriter op = null;
 
