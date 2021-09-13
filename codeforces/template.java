@@ -12,7 +12,7 @@ public class template {
 
     public static void solve() throws Exception {
         // Your solution here
-        
+            
     }
 
 
