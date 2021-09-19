@@ -3,6 +3,8 @@
 using namespace std;
 
 #define ll long long
+#define ld long double
+#define ar array
 #define pb push_back
 #define vi vector
 #define pi pair
@@ -10,6 +12,12 @@ using namespace std;
 #define sz(c) int((c).size())
 #define all(c) (c).begin(), (c).end()
 #define rall(c) (c).rbegin(), (c).rend()
+
+#define FOR(i, a, b, s) for (int i=(a); (s)>0?i<(b):i>(b); i+=(s))
+#define FOR1(e) FOR(i, 0, e, 1)
+#define FOR2(i, e) FOR(i, 0, e, 1)
+#define FOR3(i, b, e) FOR(i, b, e, 1)
+#define FOR4(i, b, e, s) FOR(i, b, e, s)
 
 template <typename T>
 vi<T> read(T n) {
@@ -23,43 +31,19 @@ vi<T> read(T n) {
     return v;
 }
 
-int main() {
-    int n,m;
-    cin>>n>>m;
-    int f[n][n];
+void solve() {
 
-    for(int i = 0; i < n; i++) 
-        for(int j = 0; j < n; j++) 
-            f[i][j] = 0;
-    
-    for(int j = 0; j < m; j++) {
-        int x,y,c;
-        cin>>x>>y>>c;
-        f[x - 1][y - 1] = c;
-    } 
-    
-    for(int i = 0; i < n; i++) 
-        for(int j = 0; j < n; j++) 
-            for(int k = 0; k < n; k++) {
-                if(f[i][j] > 0 && f[i][j] == f[j][k] && f[j][k] == f[k][i]) {
-                    f[i][j] = 0;
-                    f[j][k] = 0;
-                    f[k][i] = 0;
-                    continue;
-                }
-                if(f[i][j] > 0 && f[j][k] > 0) {
-                    int delta = min(f[i][j], f[j][k]);
-                    f[i][j] -= delta;
-                    f[j][k] -= delta;
-                    f[i][k] += delta;
-                }
-            }
-    
-    ll ans = 0;
-    for(int i = 0; i < n; i++) 
-        for(int j = 0; j < n; j++) 
-            ans += f[i][j];
-    
-    cout<<ans<<endl;
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+     
+    int t=1;
+    // cin>>t;
+    FOR1(t) {
+    	//write("Case #", i+1, ": ");
+        solve();
+    }
     return 0;
 }
