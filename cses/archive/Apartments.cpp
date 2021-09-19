@@ -33,7 +33,27 @@ vi<T> read(T n) {
 }
 
 void solve() {
-    
+    // Greedy with sorting 
+    ll n,m,k;
+    cin>>n>>m>>k;
+    vi<ll> a = read(n), b = read(m);
+    ll ans = 0;
+
+    sort(all(a));
+    sort(all(b));
+
+    ll i = 0, j =0;
+    while(i < n && j < m) {
+        if(abs(a[i] - b[j]) <= k) {
+            ans++;
+            i++;
+            j++;
+        } else {
+            if(a[i] - b[j] > k) j++;
+            else i++;   
+        }
+    }
+    cout<<ans<<endl;
 }
 
 int main() {
