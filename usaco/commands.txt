@@ -1,0 +1,2 @@
+Compile: g++ template.cpp -O2 -Wall -o a.out
+Run: ./a.out
