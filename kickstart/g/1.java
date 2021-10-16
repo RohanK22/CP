@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class template {
+public class Solution {
     public static Scanner sc = null;
     public static FileWriter op = null;
 
@@ -10,9 +10,40 @@ public class template {
     public static boolean casesPresent = true;
 
     public static void solve() throws Exception {
-        long k = gl();
-        long[][] a = new long[100][100];
-        
+        long n = gl(), d = gl(), c = gl(), m = gl();
+        gs();
+        String s = gs();
+        long i = 0;
+        for (i = 0; i < n; i++) {
+            if (s.charAt((int) i) == 'D') {
+                if (d > 0) {
+                    d--;
+                    c += m;
+                } else
+                    break;
+            } else {
+                if (c > 0)
+                    c--;
+                else
+                    break;
+            }
+        }
+        if (i == n)
+            System.out.println("YES");
+        else if (i < n) {
+            boolean f = false;
+            while (i < n) {
+                if (s.charAt((int) i) == 'D') {
+                    System.out.println("NO");
+                    f = true;
+                    break;
+                }
+                i++;
+            }
+            if (!f)
+                System.out.println("YES");
+        }
+
     }
 
     public static void main(String[] args) throws Exception {
