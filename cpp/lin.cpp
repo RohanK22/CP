@@ -127,10 +127,10 @@ template<class T, size_t S> void offset(ll o, ar<T, S>& x) {
 		offset(o, a);
 }
 
-mt19937 mt_rng(chrono::steady_clock::now().time_since_epoch().count());
-ll randint(ll a, ll b) {
-	return uniform_int_distribution<ll>(a, b)(mt_rng);
-}
+// mt19937 mt_rng(chrono::steady_clock::now().time_since_epoch().count());
+// ll randint(ll a, ll b) {
+// 	return uniform_int_distribution<ll>(a, b)(mt_rng);
+// }
 
 template<class T, class U> void vti(vt<T> &v, U x, size_t n) {
 	v=vt<T>(n, x);
@@ -145,7 +145,12 @@ const int d4i[4]={-1, 0, 1, 0}, d4j[4]={0, 1, 0, -1};
 const int d8i[8]={-1, -1, 0, 1, 1, 1, 0, -1}, d8j[8]={0, 1, 1, 1, 0, -1, -1, -1};
 
 void solve() {
-	;
+	vector<int> v;
+	read(v);
+	int n=sz(v);
+	for(int i = 0; i < n; i++) {
+		printf("%d", v[i]);
+	}
 }
 
 int main() {

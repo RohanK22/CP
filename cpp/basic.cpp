@@ -1,3 +1,5 @@
+// Thanks for the template tmwilliamlin168
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -109,19 +111,22 @@ template<class H, class... T> void print(const H& h, const T&... t) {
 
 
 
-
-
+int n = 5;
+vt<int> v(n);
 
 void solve() {
-	vt<int> v;
 	read(v);
-	sort(v.begin(),v.end());
 	write(v);
 }
 
 int main() {
 	ios::sync_with_stdio(0);
 	cin.tie(0);
+
+	#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
 
 	int t=1;
 	// cin >> t;
