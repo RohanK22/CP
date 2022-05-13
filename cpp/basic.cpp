@@ -111,12 +111,28 @@ template<class H, class... T> void print(const H& h, const T&... t) {
 
 
 
-int n = 5;
-vt<int> v(n);
+
+
+
+
 
 void solve() {
-	read(v);
-	write(v);
+	int n;
+	read(n);
+	int sx = 0, sy = 0, sz = 0;
+
+	FOR(n) {
+		int x, y, z;
+		read(x, y, z);
+		sx += x;
+		sy += y;
+		sz += z;
+	}
+	if(sx == 0 && sy == 0 && sz == 0) {
+		write("YES");
+	} else {
+		write("NO");
+	}
 }
 
 int main() {
@@ -129,7 +145,7 @@ int main() {
     #endif
 
 	int t=1;
-	// cin >> t;
+	// read(t);
 	for(int i = 0; i < t; i++) {
 		// cout<<"Case #" <<(i+1)<<": "<<endl;
 		solve();
