@@ -137,22 +137,20 @@ void print(const H &h, const T &...t)
 		write(' ');
 	print(t...);
 }
-int gcd(int a, int b) {
-		return b==0?a:gcd(b, a%b);
-	}
 
 void solve(){
-	int n;
-	read(n);
-	int c = 1;
-	int a, b;
-	for(a= 2; a <= INT_MAX; a++) {
-		b = n - 1 - a;
-		if(gcd(a,b) == 1 && a != b) {
-			cout << a << " " << b << " "<< c << endl;
-			break;
-		}
+	int l1, r1, l2, r2;
+	read(l1, r1, l2, r2);
+	int ans = -1;
+	int lb = max(l1,l2), rb = min(r1,r2);
+	if(rb - lb >= 0) {
+		// Overlap
+		ans =lb;
+	} else {
+		// No overlap
+		ans = l1 + l2;
 	}
+	write(ans, '\n');
 }
 
 int main()

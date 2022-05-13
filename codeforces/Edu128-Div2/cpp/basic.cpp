@@ -19,8 +19,9 @@ using namespace std;
 #define F_OR4(i, b, e, s) F_OR(i, b, e, s)
 #define GET5(a, b, c, d, e, ...) e
 #define F_ORC(...) GET5(__VA_ARGS__, F_OR4, F_OR3, F_OR2, F_OR1)
-#define FOR(...) F_ORC(__VA_ARGS__) \
-(__VA_ARGS__)
+#define FOR(...)       \
+	F_ORC(__VA_ARGS__) \
+	(__VA_ARGS__)
 #define EACH(x, a) for (auto &x : a)
 #define sq(x) x *x
 #define cu(x) x *x *x
@@ -137,22 +138,44 @@ void print(const H &h, const T &...t)
 		write(' ');
 	print(t...);
 }
-int gcd(int a, int b) {
-		return b==0?a:gcd(b, a%b);
-	}
 
-void solve(){
-	int n;
-	read(n);
-	int c = 1;
-	int a, b;
-	for(a= 2; a <= INT_MAX; a++) {
-		b = n - 1 - a;
-		if(gcd(a,b) == 1 && a != b) {
-			cout << a << " " << b << " "<< c << endl;
-			break;
+int numZeros(string s, int start, int end) {
+	int res = 0;
+	for(int i = start; i <= end; i++) {
+		if(s[i] == '0') {
+			res++;
 		}
 	}
+	return res;
+}
+
+map<string, int> memo;
+
+int minimizeCost(string s, int start, int end, int onesRemoved, int zerosInStr) {
+	// for(auto x: memo) {
+	// 	write(x.first, ' ', x.second, '\n');
+	// }
+	int l = end - start + 1;
+	if(memo.count(s.substr(start,l) + "_" + to_string(onesRemoved) + "_" + to_string(zerosInStr))) {
+		return memo[s.substr(start,l) + "_" + to_string(onesRemoved) + "_" + to_string(zerosInStr)];
+	}
+	if(start > end) return max(onesRemoved, zerosInStr);
+	else {
+		int leftCost = minimizeCost(s, start + 1, end, onesRemoved + (s[start] == '1'? 1: 0), zerosInStr - (s[start] == '0'? 1: 0));
+		int rightCost = minimizeCost(s, start, end - 1, onesRemoved + (s[end] == '1'? 1: 0), zerosInStr - (s[end] == '0'? 1: 0));
+		int cost = max(onesRemoved, zerosInStr);
+		int ans = min(min(cost, leftCost), rightCost);
+		memo[s.substr(start,l) + "_" + to_string(onesRemoved) + "_" + to_string(zerosInStr)] = ans;
+		return ans;
+	}
+}
+
+void solve()
+{
+	memo.clear();
+	string s;
+	read(s);
+	write(minimizeCost(s, 0, s.size() - 1, 0, numZeros(s, 0, s.size() - 1)), '\n');
 }
 
 int main()

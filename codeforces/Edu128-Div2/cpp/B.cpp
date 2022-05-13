@@ -19,8 +19,9 @@ using namespace std;
 #define F_OR4(i, b, e, s) F_OR(i, b, e, s)
 #define GET5(a, b, c, d, e, ...) e
 #define F_ORC(...) GET5(__VA_ARGS__, F_OR4, F_OR3, F_OR2, F_OR1)
-#define FOR(...) F_ORC(__VA_ARGS__) \
-(__VA_ARGS__)
+#define FOR(...)       \
+	F_ORC(__VA_ARGS__) \
+	(__VA_ARGS__)
 #define EACH(x, a) for (auto &x : a)
 #define sq(x) x *x
 #define cu(x) x *x *x
@@ -137,20 +138,66 @@ void print(const H &h, const T &...t)
 		write(' ');
 	print(t...);
 }
-int gcd(int a, int b) {
-		return b==0?a:gcd(b, a%b);
-	}
 
-void solve(){
-	int n;
-	read(n);
-	int c = 1;
-	int a, b;
-	for(a= 2; a <= INT_MAX; a++) {
-		b = n - 1 - a;
-		if(gcd(a,b) == 1 && a != b) {
-			cout << a << " " << b << " "<< c << endl;
-			break;
+void solve()
+{
+	int n, m;
+	read(n, m);
+	char a[n][m];
+	int i = 0, j = 0;
+	int rCount = 0;
+	F_OR2(i, n)
+	{
+		F_OR2(j, m)
+		{
+			read(a[i][j]);
+			if (a[i][j] == 'R')
+				rCount++;
+		}
+	}
+	if (rCount == 1 || (n == 1 || m == 1))
+	{
+		write("YES\n");
+		return;
+	}
+	else
+	{
+		// Find top left most R
+		int minLeftOffset = INT_MAX, minUpOffset = INT_MAX;
+		int leftMostLOffset = INT_MAX, leftMostUpOffset = INT_MAX;
+		int upMostLOffset = INT_MAX, upMostUpOffset = INT_MAX;
+		i = 0, j = 0;
+		F_OR2(i, n)
+		{
+			F_OR2(j, m)
+			{
+				if (a[i][j] == 'R')
+				{
+					if (minLeftOffset > i) {
+						leftMostLOffset = i;
+						leftMostUpOffset = j;
+						minLeftOffset = i;
+					}
+					if (minUpOffset > j) {
+						upMostLOffset = i;
+						upMostUpOffset = j;
+						minUpOffset = j;
+					}
+					// if(minLeftOffset < i) minLeftOffset = i;
+					// if(minUpOffset < j) minUpOffset = j;
+				}
+			}
+		}
+		// write("LMOST:", leftMostLOffset, " ", leftMostUpOffset, "\n");
+		// write("LMOST:", upMostLOffset, " ", upMostUpOffset, "\n");
+		if(leftMostLOffset != upMostLOffset || leftMostUpOffset != upMostUpOffset)//minLeftOffset < leftMostLOffset || minUpOffset < upMostUpOffset)
+		{
+			write("NO\n");
+			return;
+		} 
+		else {
+			write("YES\n");
+			return;
 		}
 	}
 }
