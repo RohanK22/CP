@@ -146,36 +146,60 @@ int gcd(int a, int b)
 
 void solve()
 {
-	int n;
-	read(n);
-	vt<int> a(n);
+	// write("Hello World!\n");
+	int n,m,k;
+	char tempc;
+	read(n, m, k);
+	string a,b;
 	read(a);
-	
-	vt<int> sorted(a);
-	sort(all(sorted));
+	read(b);
 	string ans = "";
-	int i = 0, j = n - 1;
 
-	if( n == 1 ) {
-		print(-1);
-		return;
-	}
+	sort(all(a));
+	sort(all(b));
+	// print(a);
+	// print(b);
 
-	for(int k = 0; k < n; k++) {
-		if(sorted[i] == a[k]) {
-			ans += to_string(sorted[i + 1]) + " ";
-			sorted[i + 1] = sorted[i];
-			i++;
-		} else {
-			if(k == n - 2 && n > 1 && a[n - 1] == sorted[j]) {
-				ans += to_string(sorted[j]) + " " + to_string(sorted[j - 1]);
+	int opA = 0, opB = 0;
+	int i = 0, j = 0;
+	while(i < n && j < m) {
+		if(a[i] < b[j]){
+			// print("a");
+			if(opA < k){
+				ans += a[i];
+				// write("add a up\n");
+				opA++;
+				opB = 0;
+				i++;
+			} else if (opB < k) {
+				// write("add b up\n");
+				ans += b[j];
+				opB++;
+				opA = 0;
+				j++;
+			} else {
 				break;
 			}
-			ans += to_string(sorted[i]) + " ";
-			i++;
+		}
+		else {
+			// print("b");
+			// print(a[i], " vs ", b[j])
+			if(opB < k){
+				// print("add b down");
+				ans += b[j];
+				opB++;
+				opA = 0;
+				j++;
+			} else if (opA < k) {
+				// print("add a down");
+				ans += a[i];
+				opA++;
+				opB = 0;
+				i++;
+			} else break;
 		}
 	}
-	print(ans.substr(0, 2 * n - 1));
+	write(ans + '\n');
 }
 
 int main()
