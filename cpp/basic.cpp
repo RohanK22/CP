@@ -4,7 +4,7 @@
 using namespace std;
 
 #define ll long long
-#define ld long double
+#define lld long double
 #define ar array
 #define pi pair
 #define vt vector
@@ -146,37 +146,8 @@ int gcd(int a, int b)
 
 void solve()
 {
-	int n;
-	read(n);
-	vt<int> a(n);
-	read(a);
 	
-	vt<int> sorted(a);
-	sort(all(sorted));
-	string ans = "";
-	int i = 0, j = n - 1;
-
-	if( n == 1 ) {
-		print(-1);
-		return;
-	}
-
-	for(int k = 0; k < n; k++) {
-		if(sorted[i] == a[k]) {
-			ans += to_string(sorted[i + 1]) + " ";
-			sorted[i + 1] = sorted[i];
-			i++;
-		} else {
-			if(k == n - 2 && n > 1 && a[n - 1] == sorted[j]) {
-				ans += to_string(sorted[j]) + " " + to_string(sorted[j - 1]);
-				break;
-			}
-			ans += to_string(sorted[i]) + " ";
-			i++;
-		}
-	}
-	print(ans.substr(0, 2 * n - 1));
-}
+}	
 
 int main()
 {
@@ -189,7 +160,7 @@ int main()
 #endif
 
 	int t = 1;
-	read(t);
+	// read(t);
 	for (int i = 0; i < t; i++)
 	{
 		// cout<<"Case #" <<(i+1)<<": "<<endl;

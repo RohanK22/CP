@@ -7,12 +7,26 @@ public class template {
 
     // set
     public static boolean debug = false;
-    public static boolean casesPresent = true;
+    public static boolean casesPresent = false;
 
     public static void solve() throws Exception {
-        long k = gl();
-        long[][] a = new long[100][100];
-        
+        int n = gi();gs();
+        String s =  gs();
+        String abbr = gs();
+
+        if (abbr.length() != n) {
+            println("No");
+            return;
+        }
+
+        String ans = Character.toString(s.charAt(0));
+        for (int i  = 1; i < s.length(); i ++) {
+            if (s.charAt(i - 1) == ' ') {
+                ans += s.charAt(i);
+            }
+        }
+
+        System.out.println(ans.equals(abbr) ? "Yes": "No");
     }
 
     public static void main(String[] args) throws Exception {
