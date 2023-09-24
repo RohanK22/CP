@@ -1,47 +1,29 @@
-# 5
-# 18 19 -130 6 100
-# 4
-# 18 LARGER
-# -1000 SMALLER
-# -300 LARGER
-# 0 SMALLER
+t = int(input())
 
-n = int(input())
-a = sorted(list(map(int,input(). split())))
-op = int(input())
-print(a)
-mx, mi = max(a), min(a)
+for case in range(t):
+    ans = True
+    n, m, k = map(int, input().split())
 
-for o in range(op):
-    s = input().split()
-    x = int(s[0])
-    comp = s[1]
+    x, y = map(int, input().split())
 
-    if x > mx:
-        if comp =="LARGER":
-            print(0)
-        else:
-            print(n)
-        continue
-    elif x < mi:
-        if comp =="LARGER":
-            print(n)
-        else:
-            print(0)
-        continue
-    
-    i, j = 0, len(a) - 1
-    m = (i + j) //2
-    while i <= j:
-        if x <= a[m]:
-            i = m + 1
-        else:
-            j = m - 1
-        m = (i + j) //2
+    friendlocations = []
+    if k >= 4:
+        ans = False
 
-    if comp == "LARGER":
-        print(n - m + 1)
-    else:
-        while a[m] >= x:
-            m -= 1
-        print(m + 1)
+    for j in range(k):
+        a, b = map(int, input().split())
+        friendlocations.append((a, b))
+
+        diffx = abs(x - a)
+        diffy = abs(y - b)
+
+        diffxm2 = diffx % 2
+        diffym2 = diffy % 2
+
+        if (diffxm2 + diffym2) % 2 == 0:
+            ans = False
+        # print(a, b, diffx, diffy, diffxm2, diffym2, ans)
+    # print(n, m, k)
+    # print(x, y)
+
+    print("YES" if ans else "NO")
