@@ -1,29 +1,21 @@
 t = int(input())
 
 for case in range(t):
-    ans = True
-    n, m, k = map(int, input().split())
+    n = int(input())
+    a = map(int, input().split())
 
-    x, y = map(int, input().split())
+    xors = 0
+    for num in a:
+        xors ^= num
 
-    friendlocations = []
-    if k >= 4:
-        ans = False
+    if n % 2 == 0:
+        if xors == 0:
+            print("0")
+        else:
+            print("-1")
+        continue
 
-    for j in range(k):
-        a, b = map(int, input().split())
-        friendlocations.append((a, b))
-
-        diffx = abs(x - a)
-        diffy = abs(y - b)
-
-        diffxm2 = diffx % 2
-        diffym2 = diffy % 2
-
-        if (diffxm2 + diffym2) % 2 == 0:
-            ans = False
-        # print(a, b, diffx, diffy, diffxm2, diffym2, ans)
-    # print(n, m, k)
-    # print(x, y)
-
-    print("YES" if ans else "NO")
+    for i in range(2**8):
+        if xors ^ i == 0:
+            print(i)
+            break
